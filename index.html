@@ -1,0 +1,82 @@
+<!-- Name: Farahat Saafan Mohamed Mohamed, Student ID: 225114135 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farahat Saafan - Profile Page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Farahat Saafan</h1>
+    <nav class="nav-bar">
+      <div class="nav-name">Farahat Saafan</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="theme-toggle" type="button" aria-label="Toggle theme">🌙 Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="profile-section">
+      <img src="images/me.jpg" alt="Profile photo of Farahat Saafan" class="profile-photo">
+      <p class="bio-text">
+        Computer Science and Artificial Intelligence student at New Mansoura University.
+        Passionate about Machine Learning, Python, C++, and building impactful software solutions.
+      </p>
+    </section>
+
+    <section id="skills" class="cards-section">
+      <h2 class="section-title">Highlights & Skills</h2>
+      <div class="cards-container">
+        <article class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>Exploring machine learning models, predictive data analysis, and intelligent algorithms to solve real-world problems.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">💻</div>
+          <h3>Software Engineering</h3>
+          <p>Developing clean, modular code with Python and C++, emphasizing data structures, design patterns, and efficiency.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Problem Solving</h3>
+          <p>Enthusiastic about competitive programming, data-driven reasoning, and continuously learning new technologies.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="form-section">
+      <h2 class="section-title">Get in Touch</h2>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <button id="back-to-top" type="button" aria-label="Back to top" class="back-to-top">↑ Top</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Farahat Saafan. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
