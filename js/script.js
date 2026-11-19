@@ -1,55 +1,69 @@
 // =========================================================
-// Theme Toggle Button (Light / Dark Mode)
-// Requirement: document.body.classList.toggle("dark")
-// Colors are strictly handled in CSS via variables on :root & body.dark
+// THEME TOGGLE (Dark / Light Mode)
+// Requirement:
+// - Give the button an id. Find it, listen for click, then:
+//   document.body.classList.toggle("dark")
+// - JavaScript DOES NOT set colours. All colours change in CSS
+//   via CSS variables on :root and body.dark.
 // =========================================================
 const themeToggleBtn = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+const themeText = document.getElementById("theme-text");
 
 themeToggleBtn.addEventListener("click", function () {
+  // Toggle the 'dark' class on the body element
   document.body.classList.toggle("dark");
-  
-  if (document.body.classList.contains("dark")) {
-    themeToggleBtn.textContent = "☀️ Light";
+
+  // Update button label & icon accordingly
+  const isDarkMode = document.body.classList.contains("dark");
+  if (isDarkMode) {
+    if (themeIcon) themeIcon.textContent = "☀️";
+    if (themeText) themeText.textContent = "Light Mode";
   } else {
-    themeToggleBtn.textContent = "🌙 Dark";
+    if (themeIcon) themeIcon.textContent = "🌙";
+    if (themeText) themeText.textContent = "Dark Mode";
   }
 });
 
 // =========================================================
-// Contact Form Submission (Bonus Section 5)
-// - Form stays on the page (preventDefault)
-// - Rejects empty email
-// - Displays a greeting line with the name the visitor types
+// CONTACT FORM HANDLING
+// Bonus Requirements (Section 5):
+// - The form stays on the page (preventDefault)
+// - An empty email is rejected
+// - A line that says hello with the name the visitor types
 // =========================================================
 const contactForm = document.getElementById("contact-form");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const formMessage = document.getElementById("form-message");
 
-contactForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+contactForm.addEventListener("submit", function (e) {
+  // Prevent page refresh so form stays on the page
+  e.preventDefault();
 
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
+  const nameVal = nameInput.value.trim();
+  const emailVal = emailInput.value.trim();
 
-  // Validate email presence
-  if (!email) {
-    formMessage.textContent = "Error: Email is required. Please provide your email address.";
+  // Validate that email is not empty
+  if (!emailVal) {
+    formMessage.textContent = "Please enter your email address to submit.";
     formMessage.className = "form-message error";
     return;
   }
 
-  // Greet visitor by name
-  const visitorName = name ? name : "Visitor";
-  formMessage.textContent = `Hello, ${visitorName}! Your message has been received.`;
+  // Display greeting message with the visitor's typed name
+  const greetingName = nameVal !== "" ? nameVal : "there";
+  formMessage.textContent = `Hello, ${greetingName}! Thank you for reaching out.`;
   formMessage.className = "form-message success";
 
-  // Reset inputs
+  // Reset the form input fields
   contactForm.reset();
 });
 
 // =========================================================
-// Back-to-Top Button (Bonus Section 5)
+// BACK TO TOP BUTTON
+// Bonus Requirement (Section 5):
+// - Smooth scroll to top of the page
 // =========================================================
 const backToTopBtn = document.getElementById("back-to-top");
 

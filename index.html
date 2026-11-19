@@ -4,79 +4,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farahat Saafan - Profile Page</title>
+  <title>Farahat Saafan | Profile Page</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- ==================== HEADER ==================== -->
   <header>
-    <h1>Farahat Saafan</h1>
-    <nav class="nav-bar">
-      <div class="nav-name">Farahat Saafan</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button id="theme-toggle" type="button" aria-label="Toggle theme">🌙 Mode</button>
-    </nav>
+    <div class="header-inner">
+      <h1 class="page-title">Farahat Saafan</h1>
+      
+      <!-- Flexbox Navigation Bar: Name on left, Links on right -->
+      <nav class="nav-bar">
+        <span class="nav-name">Farahat Saafan</span>
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Dark Mode</span>
+        </button>
+      </nav>
+    </div>
   </header>
 
+  <!-- ==================== MAIN CONTENT ==================== -->
   <main>
+
+    <!-- Profile & About Section (Photo) -->
     <section id="about" class="profile-section">
-      <img src="images/me.jpg" alt="Profile photo of Farahat Saafan" class="profile-photo">
+      <div class="avatar-wrapper">
+        <img src="images/me.jpg" alt="Profile portrait of Farahat Saafan" class="profile-photo">
+      </div>
+      <div class="badge">Computer Science &amp; AI Student</div>
       <p class="bio-text">
-        Computer Science and Artificial Intelligence student at New Mansoura University.
-        Passionate about Machine Learning, Python, C++, and building impactful software solutions.
+        Studying at <strong>New Mansoura University</strong>. Passionate about Artificial Intelligence, 
+        Machine Learning, and building high-performance software with Python and C++.
       </p>
     </section>
 
+    <!-- Cards Section (Three cards in a row using Flexbox with gap) -->
     <section id="skills" class="cards-section">
-      <h2 class="section-title">Highlights & Skills</h2>
+      <h2 class="section-heading">Core Competencies</h2>
+      <p class="section-subheading">A snapshot of what I specialize in and enjoy building</p>
+
       <div class="cards-container">
+        <!-- Card 1 -->
         <article class="card">
           <div class="card-icon">🤖</div>
-          <h3>Artificial Intelligence</h3>
-          <p>Exploring machine learning models, predictive data analysis, and intelligent algorithms to solve real-world problems.</p>
+          <h3 class="card-title">AI &amp; Machine Learning</h3>
+          <p class="card-desc">Designing data-driven algorithms, predictive models, and exploring intelligent systems with Python.</p>
+          <div class="tag-row">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Python</span>
+          </div>
         </article>
+
+        <!-- Card 2 -->
         <article class="card">
           <div class="card-icon">💻</div>
-          <h3>Software Engineering</h3>
-          <p>Developing clean, modular code with Python and C++, emphasizing data structures, design patterns, and efficiency.</p>
+          <h3 class="card-title">Software Engineering</h3>
+          <p class="card-desc">Writing clean, modular, and maintainable code adhering to Object-Oriented principles and solid architecture.</p>
+          <div class="tag-row">
+            <span class="tag">C++</span>
+            <span class="tag">OOP</span>
+          </div>
         </article>
+
+        <!-- Card 3 -->
         <article class="card">
-          <div class="card-icon">🚀</div>
-          <h3>Problem Solving</h3>
-          <p>Enthusiastic about competitive programming, data-driven reasoning, and continuously learning new technologies.</p>
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Problem Solving</h3>
+          <p class="card-desc">Analytical thinker with a strong foundation in data structures, algorithms, and logical problem-solving.</p>
+          <div class="tag-row">
+            <span class="tag">Algorithms</span>
+            <span class="tag">Logic</span>
+          </div>
         </article>
       </div>
     </section>
 
+    <!-- Contact Form Section -->
     <section id="contact" class="form-section">
-      <h2 class="section-title">Get in Touch</h2>
-      <form id="contact-form" class="contact-form" novalidate>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-        </div>
+      <div class="form-card">
+        <h2 class="section-heading">Send a Message</h2>
+        <p class="section-subheading">Leave your name and email to connect with me</p>
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-        </div>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Ahmed Ali" required>
+          </div>
 
-        <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
-        <p id="form-message" class="form-message" aria-live="polite"></p>
-      </form>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="e.g. ahmed@example.com" required>
+          </div>
+
+          <button type="submit" id="submit-btn" class="submit-button">Submit Message</button>
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
 
-    <button id="back-to-top" type="button" aria-label="Back to top" class="back-to-top">↑ Top</button>
+    <!-- Back to top button (Bonus feature) -->
+    <button id="back-to-top" type="button" aria-label="Scroll back to top" class="back-to-top">
+      ↑ Back to Top
+    </button>
+
   </main>
 
+  <!-- ==================== FOOTER ==================== -->
   <footer>
     <p>&copy; 2026 Farahat Saafan. All rights reserved.</p>
   </footer>
 
+  <!-- Script linked at the very end of body as required -->
   <script src="js/script.js"></script>
 </body>
 </html>
